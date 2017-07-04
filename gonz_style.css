@@ -1,0 +1,17 @@
+.containing-table {
+    display: table;
+    width: 100%;
+    /* border: 1px dotted blue; */
+}
+.centre-align  {
+    width: 33%;
+    padding: 10px;
+    border: 1px dashed gray;
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+}
+.content {
+    display: inline-block;
+    vertical-align: top; /* Removes the extra white space below the baseline */
+}

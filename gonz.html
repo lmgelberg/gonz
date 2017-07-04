@@ -1,0 +1,154 @@
+<head>
+  <link rel="stylesheet" type="text/css" href="gonz_style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+  <script>
+    var patterns = [majorLowerElements, minorLowerElements]
+    var majorLowerElements = ["1", "2", "3", "5"];
+    var minorLowerElements = ["1", "b3", "4", "5"];
+    var majorMiddleElements = ["5", "6", "7", "9"];
+    var minorMiddleElements = ["5", "7", "8", "9"];
+    var majorUpperElements = ["9", "10", "#11", "13"];
+    var minorUpperElements = ["9", "11", "12", "13"];
+    var majorPentatonicElements = ["1", "2", "3", "5", "6"];
+    var minorPentatonicElements = ["1", "b3", "4", "5", "b7"];
+
+    function getPattern(elements) {
+      var result = "";
+      var randPattern = getRandPattern(elements.length);
+      for (var i=0; i<elements.length; i++) {
+        result += elements[randPattern[i]] + " ";
+      }
+      return result;
+    };
+
+    function getRandPattern(length) {
+      var result = [];
+      for (var i=0; i<length; i++) {
+        var rand = Math.floor(Math.random() * length);
+        while (result.indexOf(rand) >= 0) {
+          rand = Math.floor(Math.random() * length);
+        }
+        result[i] = rand;
+      }
+      return result;
+    };
+
+    function toggleCheckbox(element) {
+      var randPattern = getRandPattern(4);
+      for (var i=0; i<patterns.length; i++) {
+        var pattern = patterns=[i];
+        for (var j=0; j<pattern.length; j++) {
+
+        }
+      }
+    };
+
+    $( document ).ready(function() {
+      document.getElementById("majorLower").innerHTML = getPattern(majorLowerElements);
+      document.getElementById("minorLower").innerHTML = getPattern(minorLowerElements);
+      document.getElementById("majorMiddle").innerHTML = getPattern(majorMiddleElements);
+      document.getElementById("minorMiddle").innerHTML = getPattern(minorMiddleElements);
+      document.getElementById("majorUpper").innerHTML = getPattern(majorUpperElements);
+      document.getElementById("minorUpper").innerHTML = getPattern(minorUpperElements);
+      document.getElementById("majorPent").innerHTML = getPattern(majorPentatonicElements);
+      document.getElementById("minorPent").innerHTML = getPattern(minorPentatonicElements);
+    });
+
+  </script>
+
+</head>
+<body>
+  <center>
+  <h1>Bergonzi Pattern Generator</h1>
+  <input id="parallelOn" type="checkbox" onchange="toggleCheckbox(this)"> Use parallel patterns?</input>
+  <p/>
+  <div class="containing-table">
+    <div class="centre-align"></div>
+
+    <div class="centre-align">
+      <div class="content">
+        <h2>Major</h2>
+      </div>
+    </div>
+    <div class="centre-align">
+      <div class="content">
+        <h2>Minor</h2>
+      </div>
+    </div>
+  </div>
+
+  <div class="containing-table">
+    <div class="centre-align">
+      <h2>Lower</h2>
+    </div>
+
+    <div class="centre-align">
+      <div class="content">
+        <h2 id="majorLower"></h2>
+      </div>
+    </div>
+
+    <div class="centre-align">
+      <div class="content">
+        <h2 id="minorLower"></h2>
+      </div>
+    </div>
+  </div>
+
+  <div class="containing-table">
+    <div class="centre-align">
+      <h2>Middle</h2>
+    </div>
+
+    <div class="centre-align">
+      <div class="content">
+        <h2 id="majorMiddle"></h2>
+      </div>
+    </div>
+
+    <div class="centre-align">
+      <div class="content">
+        <h2 id="minorMiddle"></h2>
+      </div>
+    </div>
+  </div>
+
+  <div class="containing-table">
+    <div class="centre-align">
+      <h2>Upper</h2>
+    </div>
+
+    <div class="centre-align">
+      <div class="content">
+        <h2 id="majorUpper"></h2>
+      </div>
+    </div>
+
+    <div class="centre-align">
+      <div class="content">
+        <h2 id="minorUpper"></h2>
+      </div>
+    </div>
+  </div>
+
+  <div class="containing-table">
+    <div class="centre-align">
+      <h2>Petantonic</h2>
+    </div>
+
+    <div class="centre-align">
+      <div class="content">
+        <h2 id="majorPent"></h2>
+      </div>
+    </div>
+
+    <div class="centre-align">
+      <div class="content">
+        <h2 id="minorPent"></h2>
+      </div>
+    </div>
+  </div>
+
+</center>
+</body>
